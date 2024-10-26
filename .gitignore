@@ -1,16 +1,23 @@
+# Ignore IntelliJ and Android Studio files
 *.iml
-.gradle
-/local.properties
+/.idea/
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+
+# macOS system files
 .DS_Store
+
+# Gradle files
+.gradle
+gradle.properties
+local.properties
+
+# Build output
 /build
 /captures
 .externalNativeBuild
 .cxx
-local.properties
-gradle.properties
