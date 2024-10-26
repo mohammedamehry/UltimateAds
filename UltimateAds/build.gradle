@@ -1,5 +1,8 @@
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
 plugins {
     alias(libs.plugins.android.library)
+    id("com.vanniktech.maven.publish") version "0.29.0"
+
 }
 
 android {
@@ -25,8 +28,11 @@ android {
     buildFeatures {
         viewBinding true
     }
-}
 
+}
+mavenPublishing {
+    configure(new AndroidSingleVariantLibrary("release", true, true))
+}
 dependencies {
 
     implementation libs.appcompat
