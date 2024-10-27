@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace 'amehry.ultimateads'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         minSdk 21
@@ -30,9 +30,25 @@ android {
     }
 
 }
+
 mavenPublishing {
     configure(new AndroidSingleVariantLibrary("release", true, true))
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = project.GROUP
+            artifactId = project.POM_ARTIFACT_ID
+            version = project.VERSION_NAME
+
+            // Define what to publish
+            artifact("$buildDir/outputs/aar/UltimateAds-debug.aar")
+            // Ensure that sources, Javadoc, and POM are included as necessary
+        }
+    }
+}
+
 dependencies {
 
     implementation libs.appcompat
@@ -42,6 +58,5 @@ dependencies {
     implementation libs.pikolo
     implementation libs.volley
     implementation libs.moshi
-    implementation libs.sp22
     implementation libs.dotsindicator
 }

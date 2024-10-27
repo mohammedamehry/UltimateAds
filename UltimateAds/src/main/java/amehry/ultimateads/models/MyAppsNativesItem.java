@@ -7,6 +7,9 @@ public class MyAppsNativesItem{
 	@Json(name = "Natievpreview")
 	private String natievpreview;
 
+	@Json(name = "isDark")
+	private boolean isDark;
+
 	@Json(name = "NativeDescription")
 	private String nativeDescription;
 
@@ -22,11 +25,21 @@ public class MyAppsNativesItem{
 	@Json(name = "NativeLink")
 	private String nativeLink;
 
+	@Json(name = "buttonTextColor")
+	private String buttonTextColor;
+
 	@Json(name = "Nativetitle")
 	private String nativetitle;
 
+	@Json(name = "ButtonTintColor")
+	private String buttonTintColor;
+
 	public String getNatievpreview(){
 		return natievpreview;
+	}
+
+	public boolean isIsDark(){
+		return isDark;
 	}
 
 	public String getNativeDescription(){
@@ -49,7 +62,15 @@ public class MyAppsNativesItem{
 		return nativeLink;
 	}
 
+	public String getButtonTextColor(){
+		return buttonTextColor;
+	}
+
 	public String getNativetitle(){
 		return nativetitle;
+	}
+
+	public String getButtonTintColor(){
+		return buttonTintColor;
 	}
 }

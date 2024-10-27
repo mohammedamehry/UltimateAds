@@ -101,8 +101,8 @@
             android:layout_weight="0.37">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_marginBottom="10dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
@@ -111,8 +111,8 @@
                 app:cardElevation="5dp">
 
                 <RelativeLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp">
+                    android:layout_width="80dp"
+                    android:layout_height="80dp">
 
                     <ImageView
                         android:id="@+id/inter_icons"
@@ -174,14 +174,14 @@
                 <TextView
                     android:id="@+id/interstitial_app_name"
                     android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
                     android:textSize="17sp"
                     android:fontFamily="@font/medium"
                     android:textStyle="normal"
@@ -193,11 +193,11 @@
                     android:id="@+id/interstitial_short_description"
                     android:layout_width="match_parent"
                     android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
                     android:layout_marginBottom="10dp"
-                    android:gravity="center"
+                    android:layout_marginStart="10dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/regular"
+                    android:gravity="center"
                     android:maxLines="2"
                     android:ellipsize="end"
                     android:text="@string/play_now_for_free"
@@ -311,10 +311,10 @@
 
                 <!--google play logo-->
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="gone"
                     android:layout_margin="10dp"
                     android:gravity="center"
                     tools:ignore="UseCompoundDrawables,UselessParent">

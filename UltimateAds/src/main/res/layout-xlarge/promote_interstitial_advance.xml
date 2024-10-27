@@ -28,10 +28,10 @@
 
             <RelativeLayout
                 android:id="@+id/interstitial_preview_progress"
-                android:layout_width="50dp"
+                android:layout_width="150dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_height="150dp"
                 android:gravity="center">
 
                 <TextView
@@ -42,7 +42,7 @@
                     android:text="Ad"
                     android:layout_centerInParent="true"
                     android:textColor="#555555"
-                    android:textSize="15sp"
+                    android:textSize="30sp"
                     android:textStyle="normal"
                     tools:ignore="HardcodedText" />
 
@@ -101,18 +101,18 @@
             android:layout_weight="0.37">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_marginBottom="10dp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="30dp"
-                app:cardElevation="5dp">
+                app:cardCornerRadius="40dp"
+                app:cardElevation="10dp">
 
                 <RelativeLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp">
+                    android:layout_width="150dp"
+                    android:layout_height="150dp">
 
                     <ImageView
                         android:id="@+id/inter_icons"
@@ -136,7 +136,7 @@
                             android:text="Ad"
                             android:layout_centerInParent="true"
                             android:textColor="#555555"
-                            android:textSize="15sp"
+                            android:textSize="30sp"
                             android:textStyle="normal"
                             tools:ignore="HardcodedText" />
 
@@ -175,34 +175,29 @@
                     android:id="@+id/interstitial_app_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="center"
+                    android:layout_margin="15dp"
                     android:ellipsize="end"
-                    android:maxLines="1"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:textSize="17sp"
                     android:fontFamily="@font/medium"
-                    android:textStyle="normal"
+                    android:gravity="center"
+                    android:maxLines="1"
                     android:text="@string/banner_ad_title"
-                    android:textColor="#222222"/>
+                    android:textColor="#222222"
+                    android:textSize="35sp"
+                    android:textStyle="normal" />
 
                 <!--short description-->
                 <TextView
                     android:id="@+id/interstitial_short_description"
                     android:layout_width="match_parent"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginBottom="10dp"
                     android:gravity="center"
+                    android:layout_margin="15dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/regular"
                     android:maxLines="2"
                     android:ellipsize="end"
                     android:text="@string/play_now_for_free"
                     android:textColor="#353535"
-                    android:textSize="15sp"
+                    android:textSize="28sp"
                     android:textStyle="normal" />
 
 
@@ -314,8 +309,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="gone"
                     android:layout_margin="10dp"
+                    android:visibility="gone"
                     android:gravity="center"
                     tools:ignore="UseCompoundDrawables,UselessParent">
 
@@ -355,9 +350,9 @@
                     app:dampingRatio="0.5"
                     app:dotsColor="@color/button_install"
                     app:dotsCornerRadius="20dp"
-                    app:dotsSize="12dp"
-                    app:dotsSpacing="5dp"
-                    app:dotsStrokeWidth="1.5dp" />
+                    app:dotsSize="30dp"
+                    app:dotsSpacing="10dp"
+                    app:dotsStrokeWidth="2dp" />
 
 
 
@@ -368,7 +363,7 @@
                 android:id="@+id/buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
+                android:layout_margin="30dp"
                 android:orientation="horizontal"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
@@ -382,6 +377,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginEnd="20dp"
                     android:minHeight="40dp"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
                     android:paddingRight="20dp"
                     android:paddingLeft="20dp"
                     android:background="@drawable/btn"
@@ -399,7 +396,7 @@
                             android:text="@string/close"
                             android:textAllCaps="false"
                             android:textColor="#555555"
-                            android:textSize="15sp"
+                            android:textSize="35sp"
                             android:textStyle="normal" />
 
                         <TextView
@@ -425,6 +422,8 @@
                     android:layout_weight="1.3"
                     android:layout_height="match_parent"
                     android:minHeight="40dp"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
                     android:paddingRight="20dp"
                     android:paddingLeft="20dp"
                     android:background="@drawable/btn"
@@ -438,7 +437,7 @@
                         android:text="@string/banner_install"
                         android:textAllCaps="false"
                         android:textColor="@android:color/black"
-                        android:textSize="17sp" />
+                        android:textSize="35sp" />
 
 
                 </RelativeLayout>
@@ -463,7 +462,7 @@
         android:padding="5dp"
         android:text="AD"
         android:textColor="@color/white"
-        android:textSize="13sp"
+        android:textSize="25sp"
         tools:ignore="HardcodedText" />
 
 

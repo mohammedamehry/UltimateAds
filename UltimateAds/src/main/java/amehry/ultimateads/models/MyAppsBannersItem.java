@@ -7,6 +7,9 @@ public class MyAppsBannersItem{
 	@Json(name = "BannerDescription")
 	private String bannerDescription;
 
+	@Json(name = "isDark")
+	private boolean isDark;
+
 	@Json(name = "Type")
 	private int type;
 
@@ -22,11 +25,21 @@ public class MyAppsBannersItem{
 	@Json(name = "BannerIcon")
 	private String bannerIcon;
 
+	@Json(name = "buttonTextColor")
+	private String buttonTextColor;
+
 	@Json(name = "BannerButtonText")
 	private String bannerButtonText;
 
+	@Json(name = "ButtonTintColor")
+	private String buttonTintColor;
+
 	public String getBannerDescription(){
 		return bannerDescription;
+	}
+
+	public boolean isIsDark(){
+		return isDark;
 	}
 
 	public int getType(){
@@ -49,7 +62,15 @@ public class MyAppsBannersItem{
 		return bannerIcon;
 	}
 
+	public String getButtonTextColor(){
+		return buttonTextColor;
+	}
+
 	public String getBannerButtonText(){
 		return bannerButtonText;
+	}
+
+	public String getButtonTintColor(){
+		return buttonTintColor;
 	}
 }

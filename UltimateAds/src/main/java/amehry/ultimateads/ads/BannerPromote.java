@@ -1,7 +1,6 @@
 package amehry.ultimateads.ads;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -13,20 +12,17 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatRatingBar;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.engine.GlideException;
@@ -218,6 +214,22 @@ public class BannerPromote extends FrameLayout {
         final String data_packageName = ((MyAppsBannersItem) this.adList.get(index)).getBannerPackage();
         final String data_link = ((MyAppsBannersItem) this.adList.get(index)).getBannerLink();
         String button_text = ((MyAppsBannersItem) this.adList.get(index)).getBannerButtonText();
+        boolean isDarkMode = ((MyAppsBannersItem) this.adList.get(index)).isIsDark();
+        int  ButtonTintColor = Color.parseColor((this.adList.get(index)).getButtonTintColor());
+        int  ButtonTextColor = Color.parseColor((this.adList.get(index)).getButtonTextColor());
+        if (isDarkMode){
+            this.banner_background.setBackgroundColor(getResources().getColor(R.color.darkColor));
+            this.name.setTextColor(getResources().getColor(R.color.white));
+            this.description.setTextColor(getResources().getColor(R.color.white));
+        }else {
+            this.banner_background.setBackgroundColor(getResources().getColor(R.color.white));
+            this.name.setTextColor(getResources().getColor(R.color.darkColor));
+            this.description.setTextColor(getResources().getColor(R.color.darkColor));
+        }
+        this.installButton.setBackgroundColor(ButtonTintColor);
+        this.installText.setTextColor(ButtonTextColor);
+        this.adColor.setBackgroundColor(ButtonTextColor);
+        this.ad.setTextColor(ButtonTintColor);
         if (this.onBannerListener != null) {
             this.onBannerListener.onBannerAdLoaded();
         }
@@ -310,13 +322,5 @@ public class BannerPromote extends FrameLayout {
         this.onBannerListener = onBannerListener;
     }
 
-    public void setThemeColors(int background, int titlecolor, int descriptioncolor, int buttoncolor, int buttontextcolor) {
-        this.name.setTextColor(titlecolor);
-        this.description.setTextColor(descriptioncolor);
-        this.installButton.setBackgroundColor(buttoncolor);
-        this.installText.setTextColor(buttontextcolor);
-        this.adColor.setBackgroundColor(buttoncolor);
-        this.banner_background.setBackgroundColor(background);
-        this.ad.setTextColor(buttontextcolor);
-    }
+
 }

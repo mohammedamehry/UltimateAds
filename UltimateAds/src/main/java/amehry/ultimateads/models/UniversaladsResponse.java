@@ -11,8 +11,6 @@ public class UniversaladsResponse{
 	@Json(name = "BlockedCountries")
 	private List<String> blockedCountries;
 
-
-
 	public MoreApps getMoreApps(){
 		return moreApps;
 	}
@@ -20,5 +18,4 @@ public class UniversaladsResponse{
 	public List<String> getBlockedCountries(){
 		return blockedCountries;
 	}
-
 }

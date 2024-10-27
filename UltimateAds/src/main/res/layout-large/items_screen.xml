@@ -10,7 +10,7 @@
     <!--150 280-->
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
-        android:layout_height="280dp"
+        android:layout_height="500dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp">
@@ -38,7 +38,7 @@
                 android:text="Ad"
                 android:layout_centerInParent="true"
                 android:textColor="#555555"
-                android:textSize="15sp"
+                android:textSize="30sp"
                 android:textStyle="normal"
                 tools:ignore="HardcodedText" />
 
@@ -46,7 +46,7 @@
                 style="?android:attr/progressBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="100dp"
+                android:padding="150dp"
                 android:indeterminateDrawable="@drawable/sp_progress" />
 
         </RelativeLayout>

@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.telephony.TelephonyManager;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
@@ -34,6 +35,7 @@ public class UltimateAds {
     // 2 : country code is null 300;
     // 3 : error in fetching data 100;
     // 3 : internet error 50;
+
 
 
     public static String countryCode = "NULL";
@@ -96,6 +98,7 @@ public class UltimateAds {
     }
 
 
+    public static boolean isTestMode = false;
 
 
     public static void fetchData(Context context, String UniversalLink, DataFetchListener fetchListener){
@@ -110,12 +113,16 @@ public class UltimateAds {
                     getUserLocation(context, new CountryListener() {
                         @Override
                         public void onCountryReceived(boolean blocked) {
-                            if (blocked) {
-                                fetchListener.onDataFetchError("400");
-                            } else {
+                            if (UltimateAds.isTestMode){
+                                Toast.makeText(context, "TestMode is ON : "+countryCode, Toast.LENGTH_SHORT).show();
                                 fetchListener.onDataFetched();
-                                isCustomAdsInitialized = true;
-
+                            }else {
+                                if (blocked) {
+                                    fetchListener.onDataFetchError("400");
+                                } else {
+                                    fetchListener.onDataFetched();
+                                    isCustomAdsInitialized = true;
+                                }
                             }
                         }
 

@@ -5,6 +5,24 @@ import com.squareup.moshi.Json;
 
 public class MyAppsIntersItem{
 
+	@Json(name = "isDark")
+	private boolean isDark;
+
+	@Json(name = "InterDescription")
+	private String interDescription;
+
+	@Json(name = "InterLink")
+	private String interLink;
+
+	@Json(name = "ButtonTintColor")
+	private String buttonTintColor;
+
+	@Json(name = "InterIcon")
+	private String interIcon;
+
+	@Json(name = "Intertitle")
+	private String intertitle;
+
 	@Json(name = "Type")
 	private int type;
 
@@ -20,20 +38,35 @@ public class MyAppsIntersItem{
 	@Json(name = "Style")
 	private int style;
 
-	@Json(name = "InterDescription")
-	private String interDescription;
+	@Json(name = "buttonTextColor")
+	private String buttonTextColor;
 
 	@Json(name = "InterPackage")
 	private String interPackage;
 
-	@Json(name = "InterLink")
-	private String interLink;
+	public boolean isIsDark(){
+		return isDark;
+	}
 
-	@Json(name = "InterIcon")
-	private String interIcon;
+	public String getInterDescription(){
+		return interDescription;
+	}
 
-	@Json(name = "Intertitle")
-	private String intertitle;
+	public String getInterLink(){
+		return interLink;
+	}
+
+	public String getButtonTintColor(){
+		return buttonTintColor;
+	}
+
+	public String getInterIcon(){
+		return interIcon;
+	}
+
+	public String getIntertitle(){
+		return intertitle;
+	}
 
 	public int getType(){
 		return type;
@@ -55,23 +88,11 @@ public class MyAppsIntersItem{
 		return style;
 	}
 
-	public String getInterDescription(){
-		return interDescription;
+	public String getButtonTextColor(){
+		return buttonTextColor;
 	}
 
 	public String getInterPackage(){
 		return interPackage;
-	}
-
-	public String getInterLink(){
-		return interLink;
-	}
-
-	public String getInterIcon(){
-		return interIcon;
-	}
-
-	public String getIntertitle(){
-		return intertitle;
 	}
 }
