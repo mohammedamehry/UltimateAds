@@ -36,6 +36,7 @@
                 android:id="@+id/LoadIter"
                 android:text="Load Interstitial"
                 android:enabled="false"
+                android:visibility="gone"
                 android:layout_margin="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -46,6 +47,36 @@
                 android:layout_margin="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/ShowReward"
+                android:text="Show Reward"
+                android:enabled="false"
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_margin="20dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Coins Earned :"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/Coins"
+                    android:text="0"
+                    android:layout_margin="10dp"
+                    android:textSize="30sp"
+                    android:textColor="@color/color_youtube_grayb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
 
             <FrameLayout
                 android:id="@+id/nativeContainer"

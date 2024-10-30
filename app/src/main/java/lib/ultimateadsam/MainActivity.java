@@ -1,7 +1,11 @@
 package lib.ultimateadsam;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -10,11 +14,23 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
 import amehry.ultimateads.UltimateAds;
 import amehry.ultimateads.ads.BannerPromote;
 import amehry.ultimateads.ads.Interfaces.OnBannerListener;
 import amehry.ultimateads.ads.Interfaces.OnInterstitialAdListener;
 import amehry.ultimateads.ads.Interfaces.OnNativeListener;
+import amehry.ultimateads.ads.Interfaces.OnRewardAdListener;
 import amehry.ultimateads.ads.InterstitialPromote;
 import amehry.ultimateads.ads.NativePromote;
 import amehry.ultimateads.interfaces.DataFetchListener;
@@ -23,13 +39,17 @@ import lib.ultimateadsam.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    private InterstitialPromote interstitialPromote;
+    int count =0;
+    int rewardCount = 0;
+    int coins = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
         UltimateAds.isTestMode = true;
+         /*
         UltimateAds.fetchData(this, "https://api.npoint.io/d63be1cd5349548b4ab8", new DataFetchListener() {
             @Override
             public void onDataFetched() {
@@ -146,6 +166,79 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+         */
+        UltimateAds.getAllData(this, "https://api.npoint.io/5c67135ed25782efc123", "https://api.npoint.io/effb3461fb23d6bb21f8", new DataFetchListener() {
+            @Override
+            public void onDataFetched() {
+                binding.ShowInter.setEnabled(true);
+                binding.ShowBanner.setEnabled(true);
+                binding.ShowNative.setEnabled(true);
+                binding.ShowReward.setEnabled(true);
+            }
+
+            @Override
+            public void onDataFetchError(String error) {
+                Toast.makeText(MainActivity.this, "error loading all data ", Toast.LENGTH_SHORT).show();
+                Log.e("errorVolley", "onDataFetchError: "+error );
+            }
+        });
+        binding.ShowBanner.setOnClickListener(v -> {
+            if (binding.bannerContainer.getChildCount()>0){
+                binding.bannerContainer.removeAllViews();
+            }
+            UltimateAds.ShowUniversalBanner(this,binding.bannerContainer);
+        });
+        binding.ShowNative.setOnClickListener(v -> {
+            if (binding.nativeContainer.getChildCount()>0){
+                binding.nativeContainer.removeAllViews();
+            }
+            UltimateAds.ShowUniversalNative(this,binding.nativeContainer);
+        });
+        binding.ShowInter.setOnClickListener(v -> {
+            UltimateAds.ShowUniversalInterstitial(this, new OnInterstitialAdListener() {
+                @Override
+                public void onInterstitialAdLoaded() {
+
+                }
+
+                @Override
+                public void onInterstitialAdClosed() {
+
+                }
+
+                @Override
+                public void onInterstitialAdClicked() {
+
+                }
+
+                @Override
+                public void onInterstitialAdFailedToLoad(String var1) {
+                    Toast.makeText(MainActivity.this, var1, Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+
+        binding.ShowReward.setOnClickListener(v -> {
+            UltimateAds.ShowUniversalReward(this, new OnRewardAdListener() {
+                @Override
+                public void onRewardFailedToLoad(String error) {
+                    Toast.makeText(MainActivity.this, error, Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onRewardClosed() {
+                    coins = coins + 10;
+                    binding.Coins.setText("Coins: "+String.valueOf(coins));
+
+                }
+
+                @Override
+                public void onRewardFailedToShow(String error) {
+
+                }
+            });
+        });
 
     }
+
 }

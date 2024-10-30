@@ -4,21 +4,35 @@ plugins {
     id("com.vanniktech.maven.publish") version "0.29.0"
 
 }
-
+def localPropertiesFile = rootProject.file('gradle.properties')
+def localProperties = new Properties()
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
 android {
     namespace 'amehry.ultimateads'
     compileSdk 35
 
     defaultConfig {
         minSdk 21
-
         consumerProguardFiles "consumer-rules.pro"
-    }
 
+    }
+    buildFeatures {
+        buildConfig = true // Enable BuildConfig generation
+    }
     buildTypes {
         release {
+            buildConfigField "String", "CF_ACCESS_CLIENT_ID", "\"${localProperties['CF_ACCESS_CLIENT_ID']}\""
+            buildConfigField "String", "CF_ACCESS_CLIENT_SECRET", "\"${localProperties['CF_ACCESS_CLIENT_SECRET']}\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "String", "CF_ACCESS_CLIENT_ID", "\"${localProperties['CF_ACCESS_CLIENT_ID']}\""
+            buildConfigField "String", "CF_ACCESS_CLIENT_SECRET", "\"${localProperties['CF_ACCESS_CLIENT_SECRET']}\""
         }
     }
     compileOptions {
@@ -59,4 +73,14 @@ dependencies {
     implementation libs.volley
     implementation libs.moshi
     implementation libs.dotsindicator
+    implementation(libs.play.services.ads)
+    implementation(libs.user.messaging.platform)
+    implementation libs.chartboost.sdk
+    implementation libs.play.services.base
+    implementation libs.play.services.ads.identifier
+    implementation libs.newinterstitial
+    implementation libs.reward
+    implementation libs.mbbid
 }
+
+

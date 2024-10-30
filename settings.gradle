@@ -9,6 +9,12 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven { url 'https://cboost.jfrog.io/artifactory/chartboost-ads/' }
+        //Launch GP market application， Android X Version
+        maven {
+            url  "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
+        }
+
     }
 }
 dependencyResolutionManagement {
@@ -16,6 +22,12 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://cboost.jfrog.io/artifactory/chartboost-ads/' }
+        //Launch GP market application， Android X Version
+        maven {
+            url  "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea"
+        }
+
     }
 }
 

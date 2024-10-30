@@ -1,12 +1,17 @@
 [versions]
 agp = "8.7.1"
+chartboostSdk = "9.8.0"
 glide = "4.16.0"
 
 appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
 constraintlayout = "2.1.4"
+newinterstitial = "16.8.11"
 pikolo = "2.0.2"
+playServicesAds = "23.4.0"
+playServicesBase = "18.1.0"
+userMessagingPlatform = "3.0.0"
 volley = "1.2.1"
 moshi = "1.15.1"
 junit = "4.13.2"
@@ -17,8 +22,16 @@ dots = "4.2"
 
 
 [libraries]
+chartboost-sdk = { module = "com.chartboost:chartboost-sdk", version.ref = "chartboostSdk" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+mbbid = { module = "com.mbridge.msdk.oversea:mbbid", version.ref = "newinterstitial" }
+newinterstitial = { module = "com.mbridge.msdk.oversea:newinterstitial", version.ref = "newinterstitial" }
+play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAds" }
+play-services-ads-identifier = { module = "com.google.android.gms:play-services-ads-identifier", version.ref = "playServicesBase" }
+play-services-base = { module = "com.google.android.gms:play-services-base", version.ref = "playServicesBase" }
+reward = { module = "com.mbridge.msdk.oversea:reward", version.ref = "newinterstitial" }
+user-messaging-platform = { module = "com.google.android.ump:user-messaging-platform", version.ref = "userMessagingPlatform" }
 volley = { module = "com.android.volley:volley", version.ref = "volley" }
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
